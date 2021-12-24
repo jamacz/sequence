@@ -525,16 +525,36 @@ socket.on('updateBoard', function(data) {
 
 $("#host-button1").click(function() {
   var stgame = [];
+  var redteam = false;
+  var greenteam = false;
+  var blueteam = false;
+  var rows = 2;
   for (var i of playerOrder) {
     if (i.team !== "") {
+      if (i.team == "r") {
+        redteam = true;
+      }
+      if (i.team == "g") {
+        greenteam = true;
+      }
+      if (i.team == "b") {
+        blueteam = true;
+      }
       stgame.push(i);
     }
   }
+  if (redteam && greenteam && blueteam) {
+    rows = 1;
+  }
   socket.emit("startGame", {
-    rows: 2,
+    rows: rows,
     players: stgame
   });
 })
+
+$("#host-button2").click(function() {
+  socket.emit("restart", "")
+});
 
 socket.on("restart", function() {
   location.reload();
