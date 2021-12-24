@@ -236,6 +236,8 @@ function endMyTurn() {
   selectedElement = undefined;
 }
 
+var lastgo;
+
 function updateBoard() {
 
   $("#board.colr").removeClass("colr");
@@ -246,7 +248,11 @@ function updateBoard() {
   $("#deck.colr").removeClass("colr");
   $("#deck.colg").removeClass("colg");
   $("#deck.colb").removeClass("colb");
-  $("#deck").addClass("col" + team);
+  if (displayShadedDeck) {
+    $("#deck").addClass("col" + team);
+  } else {
+    $("#deck").addClass("col");
+  }
   for (var y = 0; y < board.length; y++) {
     for (var x = 0; x < board[y].length; x++) {
       $("#board .board-row")
@@ -256,6 +262,7 @@ function updateBoard() {
         .removeClass("counter-red")
         .removeClass("counter-green")
         .removeClass("counter-blue")
+        .removeClass("lastgo")
         .removeClass("counter-completed");
       if (board[y][x].state == "r") {
         $("#board .board-row").eq(y).children().eq(x).addClass("counter-red");
@@ -263,6 +270,12 @@ function updateBoard() {
         $("#board .board-row").eq(y).children().eq(x).addClass("counter-green");
       } else if (board[y][x].state == "b") {
         $("#board .board-row").eq(y).children().eq(x).addClass("counter-blue");
+      }
+
+      if (lastgo !== undefined) {
+        if (lastgo.x == x && lastgo.y == y) {
+          $("#board .board-row").eq(y).children().eq(x).addClass("lastgo");
+        }
       }
 
       if (board[y][x].completed) {
@@ -372,6 +385,9 @@ function startGame() {
   if (username.length > 0) {
     socket.emit("addPlayer", username);
   }
+  setTimeout(function() {
+    $("#username").remove();
+  }, 2000);
 }
 
 function sGameRes() {
@@ -463,6 +479,8 @@ socket.on('usernameAccepted', function(data) {
   }
 });
 
+var displayShadedDeck = false;
+
 socket.on('updateBoard', function(data) {
   turn = data.turn;
   console.log(data);
@@ -514,11 +532,15 @@ socket.on('updateBoard', function(data) {
     mTurn = false;
   }
 
+  displayShadedDeck = data.turn != 0;
+
   board = data.board;
   if (username) {
     cards = data.players[username].cards;
     team = data.players[username].team;
   }
+
+  lastgo = data.lastgo
 
   updateBoard();
 });

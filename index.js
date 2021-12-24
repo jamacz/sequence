@@ -49,6 +49,8 @@ var deadCard;
 var numRowsToWin;
 var numPlayers;
 
+var lastgo = undefined;
+
 function initialise() {
   board = [
     [
@@ -179,7 +181,7 @@ function initialise() {
   winner = undefined;
   deadCard = false;
   numRowsToWin = 2;
-
+  lastgo = undefined;
   numPlayers = 0;
 }
 
@@ -484,11 +486,19 @@ io.on('connection', function(socket) {
               board[data.y][data.x].state == "" && players[socket.username].cards[i].value == data.card.value && players[socket.username].cards[i].suit == data.card.suit)
           ) {
             board[data.y][data.x].state = players[socket.username].team;
+            lastgo = {
+              x: data.x,
+              y: data.y
+            };
             nextTurn();
             c = i;
 
           } else if (players[socket.username].cards[i].value == "j" && (players[socket.username].cards[i].suit == "s" || players[socket.username].cards[i].suit == "h") && board[data.y][data.x].state != "" && board[data.y][data.x].state != players[socket.username].team && players[socket.username].cards[i].value == data.card.value && players[socket.username].cards[i].suit == data.card.suit && board[data.y][data.x].completed == false) {
             board[data.y][data.x].state = "";
+            lastgo = {
+              x: data.x,
+              y: data.y
+            };
             nextTurn();
             c = i;
           }
@@ -642,7 +652,8 @@ function updateBoard() {
   io.sockets.emit('updateBoard', {
     turn: turn,
     board: board,
-    players: players
+    players: players,
+    lastgo: lastgo
   });
 }
 

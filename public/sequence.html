@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Sequence</title>
@@ -8,654 +9,751 @@
   <script src='jquery-3.5.1.min.js'></script>
   <script src="/socket.io/socket.io.js"></script>
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 </head>
 
-<body translate="no" >
+<body translate="no">
 
   <div id="board-container">
-  <div id="host-buttons2">
-  <div id="host-button1">&#xf04b;</div>
-  <div id="host-button2">&#xf2f9;</div>
+    <div id="board" class="hidden">
+
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard wild">
+            <h1>&nbsp;</h1>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>2</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>3</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>4</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>5</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>6</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>7</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>8</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>9</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard wild">
+            <h1>&nbsp;</h1>
+          </div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>6</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>5</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>4</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>3</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>2</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>A</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>K</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>Q</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>10</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>10</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>7</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>A</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>2</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>3</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>4</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>5</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>6</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>7</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>9</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>Q</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>8</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>K</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>6</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>5</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>4</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>3</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>2</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>8</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>8</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>K</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>9</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>Q</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>7</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>6</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>5</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>4</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>A</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>9</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>7</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>A</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>10</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>10</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>8</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>7</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>2</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>3</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>K</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>10</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>6</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>2</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>Q</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>9</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>9</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>8</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>9</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>10</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>Q</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>Q</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>5</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>3</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>K</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>8</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>10</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>Q</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>K</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>A</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>A</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>K</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>4</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>4</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>A</h1>
+            <h2>&#xf327;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>7</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>6</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>5</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>4</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>3</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard">
+            <div class="counter"></div>
+            <h1>2</h1>
+            <h2>&#xf2f4;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>2</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>3</h1>
+            <h2>&#xf004;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>5</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="card">
+          <div class="contcard wild">
+            <h1>&nbsp;</h1>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>A</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>K</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>Q</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>10</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>9</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>8</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>7</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard red">
+            <div class="counter"></div>
+            <h1>6</h1>
+            <h2>&#xf219;</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="contcard wild">
+            <h1>&nbsp;</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div id="host-buttons2">
+        <div id="host-button1">&#xf04b;</div>
+        <div id="host-button2">&#xf2f9;</div>
+      </div>
+
+      <div id="host-buttons">
+
+        <div class="host-player host-active host-colr">Player 1</div>
+        <div class="host-player host-active-red">Player 2</div>
+      </div>
   </div>
+  <div id="deck" class="hidden">
 
-  <div id="host-buttons">
+    <div id="deck-container" data-nochildren="6">
 
-	<div class="host-player host-active host-colr">Player 1</div>
-	<div class="host-player host-active-red">Player 2</div>
-</div>
-  <div id="board" class="hidden">
-
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard wild">
-          <h1>&nbsp;</h1>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>2</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>3</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>4</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>5</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>6</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>7</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>8</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>9</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard wild">
-          <h1>&nbsp;</h1>
-        </div>
-      </div>
     </div>
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>6</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>5</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>4</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>3</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>2</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>A</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>K</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>Q</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>10</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>10</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-    </div>
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>7</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>A</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>2</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>3</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>4</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>5</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>6</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>7</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>9</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>Q</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-    </div>
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>8</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>K</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>6</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>5</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>4</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>3</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>2</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>8</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>8</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>K</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-    </div>
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>9</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>Q</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>7</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>6</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>5</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>4</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>A</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>9</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>7</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>A</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-    </div>
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>10</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>10</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>8</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>7</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>2</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>3</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>K</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>10</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>6</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>2</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-    </div>
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>Q</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>9</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>9</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>8</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>9</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>10</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>Q</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>Q</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>5</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>3</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-    </div>
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>K</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>8</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>10</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>Q</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>K</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>A</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>A</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>K</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>4</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>4</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-    </div>
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>A</h1><h2>&#xf327;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>7</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>6</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>5</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>4</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>3</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard">
-          <div class="counter"></div>
-          <h1>2</h1><h2>&#xf2f4;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>2</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>3</h1><h2>&#xf004;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>5</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-    </div>
-    <div class="board-row">
-      <div class="card">
-        <div class="contcard wild">
-          <h1>&nbsp;</h1>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>A</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>K</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>Q</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>10</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>9</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>8</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>7</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard red">
-          <div class="counter"></div>
-          <h1>6</h1><h2>&#xf219;</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="contcard wild">
-          <h1>&nbsp;</h1>
-        </div>
-      </div>
-    </div>
+    <h3 id="turn-indicator"></h3>
   </div>
-</div>
-<div id="deck" class="hidden">
-
-  <div id="deck-container" data-nochildren="6">
-
-</div>
-<h3 id="turn-indicator"></h3>
-</div>
-<div id="username">
-  <input id="username-input" value="">
-  <button id="username-submit" onclick="startGame()">Join Game</button>
-</div>
+  <div id="username">
+    <input id="username-input" value="">
+    <button id="username-submit" onclick="startGame()">Join Game</button>
+  </div>
 
 
 
@@ -663,4 +761,5 @@
   <script src='sequence.js'></script>
 
 </body>
+
 </html>
